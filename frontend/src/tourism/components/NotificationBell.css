@@ -1,0 +1,248 @@
+.portal-notifications {
+  position: relative;
+  z-index: 30;
+  flex: 0 0 auto;
+}
+
+.portal-notification-toggle {
+  position: relative;
+  width: 42px;
+  height: 42px;
+  display: grid;
+  place-items: center;
+  padding: 0;
+  border: 1px solid #e7eaf0;
+  border-radius: 50%;
+  background: #ffffff;
+  color: #667085;
+  cursor: pointer;
+  transition: background 0.2s, border-color 0.2s, color 0.2s;
+}
+
+.portal-notification-toggle:hover,
+.portal-notification-toggle[aria-expanded="true"] {
+  border-color: #b8ded9;
+  background: #f0fdfa;
+  color: #0f766e;
+}
+
+.portal-notification-toggle:focus-visible,
+.portal-notification-item:focus-visible,
+.portal-notification-actions button:focus-visible {
+  outline: 3px solid rgba(15, 118, 110, 0.35);
+  outline-offset: 2px;
+}
+
+.portal-notification-toggle svg {
+  width: 20px;
+  height: 20px;
+}
+
+.portal-notification-count {
+  position: absolute;
+  top: -5px;
+  right: -5px;
+  min-width: 19px;
+  height: 19px;
+  padding: 0 5px;
+  display: grid;
+  place-items: center;
+  border: 2px solid #f5f7fb;
+  border-radius: 12px;
+  background: #dc2626;
+  color: #ffffff;
+  font-size: 10px;
+  font-weight: 700;
+  line-height: 1;
+}
+
+.portal-notification-panel {
+  position: absolute;
+  top: calc(100% + 12px);
+  right: 0;
+  z-index: 40;
+  width: 380px;
+  max-width: min(380px, calc(100vw - 30px));
+  overflow: hidden;
+  border: 1px solid #e7eaf0;
+  border-radius: 12px;
+  background: #ffffff;
+  box-shadow: 0 14px 40px rgba(23, 32, 51, 0.16);
+  color: #172033;
+  text-align: left;
+}
+
+.portal-notification-header {
+  min-height: 72px;
+  padding: 14px 16px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+  border-bottom: 1px solid #eef0f3;
+}
+
+.portal-notification-header h2 {
+  margin: 0;
+  color: #172033;
+  font-size: 15px;
+}
+
+.portal-notification-header p {
+  margin: 4px 0 0;
+  color: #8a93a2;
+  font-size: 11px;
+}
+
+.portal-notification-actions {
+  display: flex;
+  align-items: center;
+  gap: 9px;
+}
+
+.portal-notification-actions button {
+  padding: 4px 0;
+  border: 0;
+  background: transparent;
+  color: #0f766e;
+  font: inherit;
+  font-size: 10px;
+  font-weight: 650;
+  white-space: nowrap;
+  cursor: pointer;
+}
+
+.portal-notification-actions button:first-child {
+  width: 26px;
+  height: 26px;
+  border: 1px solid #e7eaf0;
+  border-radius: 50%;
+  font-size: 15px;
+}
+
+.portal-notification-actions button:disabled {
+  opacity: 0.6;
+  cursor: wait;
+}
+
+.portal-notification-loading,
+.portal-notification-error {
+  margin: 0;
+  padding: 8px 16px;
+  font-size: 10px;
+  line-height: 1.5;
+}
+
+.portal-notification-loading {
+  background: #f0fdfa;
+  color: #0f766e;
+}
+
+.portal-notification-error {
+  background: #fef2f2;
+  color: #b91c1c;
+}
+
+.portal-notification-list {
+  max-height: 390px;
+  overflow-y: auto;
+}
+
+.portal-notification-item {
+  width: 100%;
+  padding: 13px 16px;
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+  border: 0;
+  border-bottom: 1px solid #f0f1f4;
+  background: #ffffff;
+  text-align: left;
+  cursor: pointer;
+}
+
+.portal-notification-item:last-child {
+  border-bottom: 0;
+}
+
+.portal-notification-item:hover,
+.portal-notification-item.unread {
+  background: #f7fbfa;
+}
+
+.portal-notification-indicator {
+  width: 8px;
+  height: 8px;
+  flex: 0 0 8px;
+  margin-top: 5px;
+  border-radius: 50%;
+  background: transparent;
+}
+
+.portal-notification-item.unread .portal-notification-indicator {
+  background: #0f766e;
+}
+
+.portal-notification-copy {
+  min-width: 0;
+  display: grid;
+  gap: 4px;
+}
+
+.portal-notification-copy strong {
+  color: #273449;
+  font-size: 11px;
+  font-weight: 650;
+}
+
+.portal-notification-copy > span {
+  color: #667085;
+  font-size: 10px;
+  line-height: 1.5;
+  white-space: pre-line;
+  overflow-wrap: anywhere;
+}
+
+.portal-notification-copy time {
+  margin-top: 2px;
+  color: #9aa2af;
+  font-size: 9px;
+}
+
+.portal-notification-empty {
+  padding: 26px 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
+
+.portal-notification-empty > span {
+  width: 34px;
+  height: 34px;
+  margin-bottom: 9px;
+  display: grid;
+  place-items: center;
+  border-radius: 50%;
+  background: #e8f7f5;
+  color: #0f766e;
+}
+
+.portal-notification-empty strong {
+  color: #374151;
+  font-size: 12px;
+}
+
+.portal-notification-empty p {
+  max-width: 250px;
+  margin: 6px 0 0;
+  color: #8a93a2;
+  font-size: 10px;
+  line-height: 1.5;
+}
+
+@media (max-width: 750px) {
+  .portal-notification-panel {
+    right: -4px;
+  }
+}

@@ -1,0 +1,278 @@
+.complaint-admin-summary .complaint-critical-summary {
+  border-left: 4px solid #dc2626;
+}
+
+.complaint-admin-container {
+  margin-bottom: 24px;
+}
+
+.complaint-admin-filters {
+  display: flex;
+  gap: 12px;
+}
+
+.complaint-admin-filters label {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  color: #4a5568;
+  font-size: 13px;
+  font-weight: 600;
+}
+
+.complaint-admin-filters select {
+  min-width: 132px;
+  padding: 11px 30px 11px 10px;
+  border: 1px solid #d9dee7;
+  border-radius: 9px;
+  background: #fff;
+  color: #334155;
+  font: inherit;
+  cursor: pointer;
+}
+
+.complaint-admin-table {
+  min-width: 1000px;
+}
+
+.complaint-admin-priority {
+  display: inline-flex;
+  padding: 6px 10px;
+  border-radius: 20px;
+  font-size: 11px;
+  font-weight: 700;
+}
+
+.complaint-admin-priority.priority-critical,
+.complaint-admin-priority.priority-high {
+  background: #fef2f2;
+  color: #b91c1c;
+}
+
+.complaint-admin-priority.priority-medium {
+  background: #fff7ed;
+  color: #c2410c;
+}
+
+.complaint-admin-priority.priority-low {
+  background: #ecfdf5;
+  color: #15803d;
+}
+
+.complaint-admin-error {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 14px;
+  padding: 14px 20px;
+  background: #fef2f2;
+  color: #b91c1c;
+  font-size: 13px;
+}
+
+.complaint-admin-error button,
+.complaint-admin-close {
+  border: 0;
+  background: transparent;
+  color: #1d4ed8;
+  font: inherit;
+  font-weight: 700;
+  cursor: pointer;
+}
+
+.complaint-admin-review {
+  padding: 24px;
+}
+
+.complaint-admin-review-heading {
+  display: flex;
+  justify-content: space-between;
+  gap: 18px;
+  padding-bottom: 20px;
+  border-bottom: 1px solid #edf0f4;
+}
+
+.complaint-admin-review-heading h2 {
+  margin: 5px 0 7px;
+  color: #172033;
+  font-size: 22px;
+}
+
+.complaint-admin-review-heading p:last-child {
+  margin: 0;
+  color: #718096;
+  font-size: 13px;
+}
+
+.complaint-admin-close {
+  align-self: flex-start;
+  color: #64748b;
+  font-size: 25px;
+}
+
+.complaint-admin-detail-grid {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 18px;
+  padding: 20px 0;
+}
+
+.complaint-admin-detail-grid span {
+  display: block;
+  margin-bottom: 6px;
+  color: #718096;
+  font-size: 12px;
+}
+
+.complaint-admin-detail-grid strong {
+  color: #334155;
+  font-size: 13px;
+  overflow-wrap: anywhere;
+}
+
+.complaint-admin-description,
+.complaint-admin-evidence {
+  padding: 17px 0;
+  border-top: 1px solid #edf0f4;
+}
+
+.complaint-admin-description h3,
+.complaint-admin-evidence h3,
+.complaint-admin-review-form h3 {
+  margin: 0 0 10px;
+  color: #1e293b;
+  font-size: 15px;
+}
+
+.complaint-admin-description p {
+  margin: 0;
+  color: #475569;
+  font-size: 13px;
+  line-height: 1.7;
+  white-space: pre-wrap;
+}
+
+.complaint-admin-evidence ul {
+  display: grid;
+  gap: 8px;
+  padding: 0;
+  margin: 0;
+  list-style: none;
+}
+
+.complaint-admin-evidence li {
+  display: flex;
+  justify-content: space-between;
+  gap: 12px;
+  padding: 11px 13px;
+  border: 1px solid #e6eaf0;
+  border-radius: 8px;
+  color: #475569;
+  font-size: 12px;
+}
+
+.complaint-admin-evidence a {
+  color: #1d4ed8;
+  font-weight: 700;
+  text-decoration: none;
+}
+
+.complaint-admin-review-form {
+  padding-top: 19px;
+  border-top: 1px solid #edf0f4;
+}
+
+.complaint-admin-review-fields {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 16px;
+  margin: 16px 0;
+}
+
+.complaint-admin-review-fields label {
+  display: flex;
+  flex-direction: column;
+  gap: 7px;
+  color: #334155;
+  font-size: 12px;
+  font-weight: 700;
+}
+
+.complaint-admin-review-fields select,
+.complaint-admin-review-fields textarea {
+  width: 100%;
+  box-sizing: border-box;
+  padding: 11px 12px;
+  border: 1px solid #d9dee7;
+  border-radius: 8px;
+  background: #fff;
+  color: #334155;
+  font: inherit;
+  font-weight: 400;
+}
+
+.complaint-admin-review-fields textarea {
+  resize: vertical;
+  line-height: 1.55;
+}
+
+.complaint-admin-review-wide {
+  grid-column: 1 / -1;
+}
+
+.complaint-admin-hint {
+  color: #64748b;
+  font-weight: 400;
+}
+
+.complaint-admin-feedback {
+  padding: 10px 12px;
+  border-radius: 7px;
+  font-size: 13px;
+}
+
+.complaint-admin-feedback.error {
+  background: #fef2f2;
+  color: #b91c1c;
+}
+
+.complaint-admin-feedback.success {
+  background: #ecfdf5;
+  color: #15803d;
+}
+
+@media (max-width: 900px) {
+  .complaint-admin-detail-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .applications-toolbar {
+    align-items: stretch;
+    flex-direction: column;
+  }
+
+  .complaint-admin-filters {
+    flex-wrap: wrap;
+  }
+}
+
+@media (max-width: 600px) {
+  .complaint-admin-review {
+    padding: 18px;
+  }
+
+  .complaint-admin-detail-grid,
+  .complaint-admin-review-fields {
+    grid-template-columns: 1fr;
+  }
+
+  .complaint-admin-review-wide {
+    grid-column: auto;
+  }
+
+  .complaint-admin-evidence li,
+  .complaint-admin-review-heading {
+    align-items: flex-start;
+    flex-direction: column;
+  }
+}

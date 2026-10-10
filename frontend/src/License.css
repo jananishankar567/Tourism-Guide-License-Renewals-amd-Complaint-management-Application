@@ -1,0 +1,1065 @@
+/* =========================================================
+   GLOBAL
+========================================================= */
+
+* {
+  box-sizing: border-box;
+}
+
+.license-page {
+  min-height: 100vh;
+  background: #f4f7fb;
+  color: #172033;
+  padding: 42px 60px 70px;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+
+/* =========================================================
+   HEADER
+========================================================= */
+
+.license-header {
+  max-width: 1180px;
+  margin: 0 auto 32px;
+
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  gap: 30px;
+}
+
+.license-header-label {
+  margin: 0 0 8px;
+
+  color: #64748b;
+  font-size: 11px;
+  font-weight: 800;
+  letter-spacing: 1.8px;
+}
+
+.license-header h1 {
+  margin: 0;
+
+  color: #172033;
+  font-size: 30px;
+  font-weight: 750;
+  letter-spacing: -0.5px;
+}
+
+.license-header p:not(.license-header-label) {
+  margin: 8px 0 0;
+
+  color: #64748b;
+  font-size: 14px;
+  line-height: 1.5;
+}
+
+
+/* =========================================================
+   STATUS
+========================================================= */
+
+.license-status {
+  display: flex;
+  align-items: center;
+  gap: 9px;
+
+  padding: 10px 16px;
+
+  border: 1px solid #bbf7d0;
+  border-radius: 7px;
+
+  background: #ecfdf3;
+  color: #15803d;
+
+  font-size: 11px;
+  font-weight: 800;
+  letter-spacing: 0.5px;
+
+  white-space: nowrap;
+}
+
+.status-dot {
+  width: 8px;
+  height: 8px;
+
+  border-radius: 50%;
+
+  background: #94a3b8;
+}
+
+.status-dot.active {
+  background: #16a34a;
+
+  box-shadow: 0 0 0 3px rgba(22, 163, 74, 0.12);
+}
+
+
+/* =========================================================
+   DIGITAL LICENSE CARD
+========================================================= */
+
+.digital-license-card {
+  width: 100%;
+  max-width: 1180px;
+
+  margin: 0 auto;
+
+  background: #ffffff;
+
+  border: 1px solid #d7dee8;
+  border-radius: 14px;
+
+  overflow: hidden;
+
+  box-shadow:
+    0 18px 45px rgba(15, 23, 42, 0.10);
+}
+
+
+/* =========================================================
+   LICENSE CARD TOP
+========================================================= */
+
+.license-card-top {
+  min-height: 108px;
+
+  padding: 22px 32px;
+
+  display: flex;
+  align-items: center;
+  gap: 18px;
+
+  background: #12355b;
+  color: #ffffff;
+
+  position: relative;
+}
+
+
+/* Government Symbol */
+
+.government-symbol {
+  width: 62px;
+  height: 62px;
+
+  flex-shrink: 0;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  border: 2px solid rgba(255, 255, 255, 0.85);
+  border-radius: 50%;
+
+  color: #ffffff;
+
+  font-size: 18px;
+  font-weight: 800;
+  letter-spacing: 1px;
+}
+
+
+/* Title */
+
+.license-title {
+  flex: 1;
+}
+
+.license-title span {
+  display: block;
+
+  margin-bottom: 5px;
+
+  color: #dbeafe;
+
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 1.7px;
+}
+
+.license-title h2 {
+  margin: 0;
+
+  color: #ffffff;
+
+  font-size: 24px;
+  font-weight: 700;
+  letter-spacing: 0.6px;
+}
+
+
+/* Digital Badge */
+
+.license-card-badge {
+  padding: 9px 14px;
+
+  border: 1px solid rgba(255, 255, 255, 0.35);
+  border-radius: 5px;
+
+  color: #ffffff;
+
+  font-size: 10px;
+  font-weight: 800;
+  letter-spacing: 1.2px;
+}
+
+
+/* Gold Line */
+
+.license-card-top::after {
+  content: "";
+
+  position: absolute;
+
+  left: 0;
+  right: 0;
+  bottom: 0;
+
+  height: 4px;
+
+  background: #d4a72c;
+}
+
+
+/* =========================================================
+   MAIN LICENSE BODY
+========================================================= */
+
+.license-card-body {
+  display: grid;
+
+  grid-template-columns: 135px minmax(0, 1fr) 205px;
+
+  gap: 30px;
+
+  padding: 34px 35px 32px;
+
+  align-items: start;
+}
+
+
+/* =========================================================
+   PHOTO
+========================================================= */
+
+.license-photo-section {
+  text-align: center;
+}
+
+.license-photo {
+  width: 112px;
+  height: 138px;
+
+  margin: 0 auto;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  background: #f8fafc;
+
+  border: 1px solid #cbd5e1;
+  border-radius: 3px;
+
+  overflow: hidden;
+
+  box-shadow: 0 2px 5px rgba(15, 23, 42, 0.06);
+}
+
+.license-photo img {
+  width: 100%;
+  height: 100%;
+
+  display: block;
+
+  object-fit: cover;
+}
+
+.photo-placeholder {
+  width: 100%;
+  height: 100%;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  background: #f1f5f9;
+
+  color: #94a3b8;
+
+  font-size: 35px;
+}
+
+.license-photo-section > span {
+  display: block;
+
+  margin-top: 10px;
+
+  color: #64748b;
+
+  font-size: 9px;
+  font-weight: 800;
+  letter-spacing: 1.2px;
+}
+
+
+/* =========================================================
+   GUIDE INFORMATION
+========================================================= */
+
+.guide-information {
+  display: flex;
+  flex-direction: column;
+
+  gap: 21px;
+
+  min-width: 0;
+}
+
+.info-group {
+  display: flex;
+  flex-direction: column;
+
+  gap: 5px;
+}
+
+.info-label {
+  color: #64748b;
+
+  font-size: 9px;
+  font-weight: 800;
+
+  letter-spacing: 1.2px;
+}
+
+.info-group strong {
+  color: #1e293b;
+
+  font-size: 14px;
+  font-weight: 650;
+
+  word-break: break-word;
+}
+
+
+/* License Number */
+
+.info-group .license-number {
+  color: #12355b;
+
+  font-family: "Courier New", monospace;
+
+  font-size: 16px;
+  font-weight: 800;
+
+  letter-spacing: 1px;
+}
+
+
+/* Two-column rows */
+
+.info-row {
+  display: grid;
+
+  grid-template-columns: 1fr 1fr;
+
+  gap: 28px;
+}
+
+
+/* =========================================================
+   QR SECTION
+========================================================= */
+
+.qr-section {
+  min-height: 190px;
+
+  display: flex;
+  flex-direction: column;
+
+  align-items: center;
+  justify-content: flex-start;
+
+  text-align: center;
+
+  border-left: 1px solid #e2e8f0;
+
+  padding-left: 25px;
+}
+
+.qr-container {
+  display: inline-flex;
+
+  padding: 9px;
+
+  background: #ffffff;
+
+  border: 1px solid #cbd5e1;
+  border-radius: 5px;
+
+  box-shadow: 0 2px 8px rgba(15, 23, 42, 0.05);
+}
+
+.qr-container svg {
+  display: block;
+}
+
+.qr-title {
+  display: block;
+
+  margin-top: 10px;
+
+  color: #1e293b;
+
+  font-size: 10px;
+  font-weight: 800;
+
+  letter-spacing: 1.2px;
+}
+
+.qr-subtitle {
+  display: block;
+
+  margin-top: 5px;
+
+  color: #64748b;
+
+  font-size: 9px;
+
+  line-height: 1.4;
+}
+
+.qr-unavailable {
+  width: 150px;
+  height: 150px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  border: 1px dashed #cbd5e1;
+  border-radius: 5px;
+
+  background: #f8fafc;
+
+  color: #94a3b8;
+
+  font-size: 12px;
+}
+
+
+/* =========================================================
+   LICENSE DETAILS
+========================================================= */
+
+.license-details {
+  display: grid;
+
+  grid-template-columns: repeat(3, 1fr);
+
+  border-top: 1px solid #e2e8f0;
+
+  background: #f8fafc;
+}
+
+.detail-item {
+  padding: 17px 25px;
+
+  border-right: 1px solid #e2e8f0;
+}
+
+.detail-item:last-child {
+  border-right: none;
+}
+
+.detail-item span {
+  display: block;
+
+  margin-bottom: 6px;
+
+  color: #64748b;
+
+  font-size: 9px;
+  font-weight: 800;
+
+  letter-spacing: 1.1px;
+}
+
+.detail-item strong {
+  color: #334155;
+
+  font-size: 13px;
+  font-weight: 700;
+}
+
+.detail-item .valid-text {
+  color: #15803d;
+}
+
+
+/* =========================================================
+   LICENSE FOOTER
+========================================================= */
+
+.license-card-footer {
+  display: flex;
+
+  justify-content: space-between;
+  align-items: center;
+
+  gap: 25px;
+
+  padding: 17px 30px;
+
+  border-top: 1px solid #e2e8f0;
+
+  background: #ffffff;
+}
+
+.license-card-footer > div:first-child {
+  display: flex;
+  flex-direction: column;
+
+  gap: 4px;
+}
+
+.license-card-footer strong {
+  color: #334155;
+
+  font-size: 11px;
+  font-weight: 750;
+}
+
+.license-card-footer span {
+  color: #64748b;
+
+  font-size: 10px;
+}
+
+.footer-note {
+  max-width: 300px;
+
+  color: #64748b;
+
+  font-size: 10px;
+
+  line-height: 1.5;
+
+  text-align: right;
+}
+
+
+/* =========================================================
+   INFORMATION CARD
+========================================================= */
+
+.license-information {
+  max-width: 1180px;
+
+  margin: 25px auto 0;
+
+  padding: 20px 23px;
+
+  display: flex;
+
+  align-items: flex-start;
+
+  gap: 15px;
+
+  background: #ffffff;
+
+  border: 1px solid #dbe3eb;
+  border-radius: 10px;
+
+  box-shadow: 0 4px 16px rgba(15, 23, 42, 0.04);
+}
+
+.information-icon {
+  width: 36px;
+  height: 36px;
+
+  flex-shrink: 0;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  background: #ecfdf3;
+
+  border-radius: 50%;
+
+  color: #15803d;
+
+  font-size: 15px;
+  font-weight: 800;
+}
+
+.license-information h3 {
+  margin: 1px 0 6px;
+
+  color: #1e293b;
+
+  font-size: 14px;
+  font-weight: 750;
+}
+
+.license-information p {
+  margin: 0;
+
+  max-width: 850px;
+
+  color: #64748b;
+
+  font-size: 12px;
+
+  line-height: 1.6;
+}
+
+
+/* =========================================================
+   LOADING
+========================================================= */
+
+.license-loading {
+  min-height: 100vh;
+
+  display: flex;
+  flex-direction: column;
+
+  align-items: center;
+  justify-content: center;
+
+  color: #64748b;
+}
+
+.loading-spinner {
+  width: 38px;
+  height: 38px;
+
+  margin-bottom: 14px;
+
+  border: 3px solid #dbe3eb;
+  border-top-color: #12355b;
+
+  border-radius: 50%;
+
+  animation: licenseSpin 0.8s linear infinite;
+}
+
+.license-loading p {
+  margin: 0;
+
+  font-size: 13px;
+}
+
+@keyframes licenseSpin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+
+/* =========================================================
+   ERROR
+========================================================= */
+
+.license-error {
+  width: min(550px, 90%);
+
+  margin: 80px auto;
+
+  padding: 45px 35px;
+
+  text-align: center;
+
+  background: #ffffff;
+
+  border: 1px solid #e2e8f0;
+  border-radius: 12px;
+
+  box-shadow: 0 10px 30px rgba(15, 23, 42, 0.07);
+}
+
+.error-icon {
+  width: 52px;
+  height: 52px;
+
+  margin: 0 auto 15px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  background: #fef2f2;
+
+  border-radius: 50%;
+
+  font-size: 22px;
+}
+
+.license-error h2 {
+  margin: 0 0 8px;
+
+  color: #172033;
+
+  font-size: 21px;
+}
+
+.license-error p {
+  margin: 0;
+
+  color: #64748b;
+
+  font-size: 13px;
+
+  line-height: 1.6;
+}
+
+.retry-btn {
+  margin-top: 20px;
+
+  padding: 10px 20px;
+
+  border: none;
+  border-radius: 6px;
+
+  background: #12355b;
+  color: #ffffff;
+
+  font-size: 13px;
+  font-weight: 650;
+
+  cursor: pointer;
+
+  transition: 0.2s ease;
+}
+
+.retry-btn:hover {
+  background: #0d2947;
+
+  transform: translateY(-1px);
+}
+
+
+/* =========================================================
+   RESPONSIVE - TABLET
+========================================================= */
+
+@media (max-width: 950px) {
+
+  .license-page {
+    padding: 30px 25px 50px;
+  }
+
+  .license-card-body {
+    grid-template-columns: 120px minmax(0, 1fr);
+
+    gap: 25px;
+  }
+
+  .qr-section {
+    grid-column: 1 / -1;
+
+    border-left: none;
+    border-top: 1px solid #e2e8f0;
+
+    padding: 25px 0 0;
+
+    min-height: auto;
+  }
+
+  .qr-container {
+    margin-top: 2px;
+  }
+
+}
+
+
+/* =========================================================
+   RESPONSIVE - MOBILE
+========================================================= */
+
+@media (max-width: 650px) {
+
+  .license-page {
+    padding: 22px 14px 40px;
+  }
+
+  .license-header {
+    margin-bottom: 22px;
+
+    align-items: flex-start;
+
+    flex-direction: column;
+
+    gap: 15px;
+  }
+
+  .license-header h1 {
+    font-size: 25px;
+  }
+
+  .license-header p:not(.license-header-label) {
+    font-size: 13px;
+  }
+
+  .license-status {
+    align-self: flex-start;
+  }
+
+
+  /* Card header */
+
+  .license-card-top {
+    padding: 20px;
+
+    gap: 12px;
+  }
+
+  .government-symbol {
+    width: 48px;
+    height: 48px;
+
+    font-size: 15px;
+  }
+
+  .license-title span {
+    font-size: 8px;
+  }
+
+  .license-title h2 {
+    font-size: 17px;
+  }
+
+  .license-card-badge {
+    display: none;
+  }
+
+
+  /* Body */
+
+  .license-card-body {
+    grid-template-columns: 1fr;
+
+    padding: 25px 20px;
+
+    gap: 25px;
+  }
+
+
+  /* Photo */
+
+  .license-photo-section {
+    text-align: left;
+  }
+
+  .license-photo {
+    margin: 0;
+  }
+
+
+  /* Information */
+
+  .info-row {
+    grid-template-columns: 1fr;
+
+    gap: 20px;
+  }
+
+  .guide-information {
+    gap: 20px;
+  }
+
+
+  /* QR */
+
+  .qr-section {
+    padding-top: 25px;
+  }
+
+
+  /* License details */
+
+  .license-details {
+    grid-template-columns: 1fr;
+  }
+
+  .detail-item {
+    border-right: none;
+
+    border-bottom: 1px solid #e2e8f0;
+  }
+
+  .detail-item:last-child {
+    border-bottom: none;
+  }
+
+
+  /* Footer */
+
+  .license-card-footer {
+    flex-direction: column;
+
+    align-items: flex-start;
+
+    padding: 18px 20px;
+
+    gap: 12px;
+  }
+
+  .footer-note {
+    max-width: none;
+
+    text-align: left;
+  }
+
+
+  /* Information */
+
+  .license-information {
+    padding: 18px;
+
+    gap: 12px;
+  }
+
+  .license-information p {
+    font-size: 11px;
+  }
+
+}
+
+
+/* =========================================================
+   VERY SMALL SCREENS
+========================================================= */
+
+@media (max-width: 400px) {
+
+  .license-page {
+    padding: 18px 10px 35px;
+  }
+
+  .license-header h1 {
+    font-size: 22px;
+  }
+
+  .license-card-top {
+    padding: 18px 15px;
+  }
+
+  .license-card-body {
+    padding: 22px 15px;
+  }
+
+  .license-title h2 {
+    font-size: 15px;
+  }
+
+  .license-information {
+    flex-direction: column;
+  }
+
+}
+/* =========================================================
+   DOWNLOAD LICENSE
+========================================================= */
+
+.license-actions {
+  max-width: 1180px;
+
+  margin: 20px auto 0;
+
+  display: flex;
+  justify-content: flex-end;
+}
+
+.download-license-btn {
+  border: none;
+  border-radius: 7px;
+
+  padding: 12px 22px;
+
+  background: #12355b;
+  color: #ffffff;
+
+  font-size: 13px;
+  font-weight: 700;
+
+  cursor: pointer;
+
+  box-shadow: 0 4px 12px rgba(18, 53, 91, 0.18);
+
+  transition:
+    background 0.2s ease,
+    transform 0.2s ease,
+    box-shadow 0.2s ease;
+}
+
+.download-license-btn:hover {
+  background: #0d2947;
+
+  transform: translateY(-1px);
+
+  box-shadow: 0 6px 16px rgba(18, 53, 91, 0.24);
+}
+
+.download-license-btn:active {
+  transform: translateY(0);
+}
+
+@media (max-width: 650px) {
+  .license-actions {
+    justify-content: stretch;
+  }
+
+  .download-license-btn {
+    width: 100%;
+  }
+}
+
+.license-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 20px;
+}
+
+.license-header-actions {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  gap: 14px;
+  flex-wrap: wrap;
+}
+
+.back-dashboard-btn {
+  padding: 10px 16px;
+  border: 1px solid #1e3a5f;
+  border-radius: 8px;
+  background: #ffffff;
+  color: #1e3a5f;
+  font-size: 14px;
+  font-weight: 600;
+  cursor: pointer;
+  white-space: nowrap;
+  transition: all 0.2s ease;
+}
+
+.back-dashboard-btn:hover {
+  background: #1e3a5f;
+  color: #ffffff;
+}
+
+@media (max-width: 650px) {
+  .license-header {
+    align-items: flex-start;
+    flex-direction: column;
+  }
+
+  .license-header-actions {
+    justify-content: flex-start;
+    width: 100%;
+  }
+}
