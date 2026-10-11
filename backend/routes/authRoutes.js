@@ -4,7 +4,7 @@ const jwt = require("jsonwebtoken");
 const Applicant = require("../models/Applicant");
 
 const {
-  sendEmail
+  sendEmailInBackground
 } = require("../utils/emailService");
 
 const router = express.Router();
@@ -51,14 +51,10 @@ router.post("/register", async (req, res) => {
       email.toLowerCase().trim();
 
 
-    // Check existing email
-
-    const existingEmail =
-      await Applicant.findOne({
-
-        email: normalizedEmail
-
-      });
+    const [existingEmail, existingMobile] = await Promise.all([
+      Applicant.findOne({ email: normalizedEmail }),
+      Applicant.findOne({ mobile })
+    ]);
 
 
     if (existingEmail) {
@@ -71,16 +67,6 @@ router.post("/register", async (req, res) => {
       });
 
     }
-
-
-    // Check existing mobile
-
-    const existingMobile =
-      await Applicant.findOne({
-
-        mobile: mobile
-
-      });
 
 
     if (existingMobile) {
@@ -125,68 +111,6 @@ router.post("/register", async (req, res) => {
     await applicant.save();
 
 
-    // =================================================
-    // SEND SIGNUP EMAIL
-    // =================================================
-
-    await sendEmail({
-
-      to: applicant.email,
-
-      subject:
-        "Welcome to Tourism Guide Licensing Portal",
-
-      title:
-        "Account Registration Successful",
-
-      greeting:
-        `Dear ${applicant.fullName},`,
-
-      message:
-        "Your applicant account has been successfully created in the Tourism Guide Licensing Portal. You can now log in and access the available licensing services.",
-
-      details: [
-
-        {
-          label:
-            "Applicant Name",
-
-          value:
-            applicant.fullName
-        },
-
-        {
-          label:
-            "Registered Email",
-
-          value:
-            applicant.email
-        },
-
-        {
-          label:
-            "Mobile Number",
-
-          value:
-            applicant.mobile
-        },
-
-        {
-          label:
-            "Account Status",
-
-          value:
-            "Active"
-        }
-
-      ],
-
-      status:
-        "Account Created"
-
-    });
-
-
     // Send response
 
     res.status(201).json({
@@ -211,6 +135,22 @@ router.post("/register", async (req, res) => {
       }
 
     });
+
+    sendEmailInBackground({
+      to: applicant.email,
+      subject: "Welcome to Tourism Guide Licensing Portal",
+      title: "Account Registration Successful",
+      greeting: `Dear ${applicant.fullName},`,
+      message:
+        "Your applicant account has been successfully created in the Tourism Guide Licensing Portal. You can now log in and access the available licensing services.",
+      details: [
+        { label: "Applicant Name", value: applicant.fullName },
+        { label: "Registered Email", value: applicant.email },
+        { label: "Mobile Number", value: applicant.mobile },
+        { label: "Account Status", value: "Active" }
+      ],
+      status: "Account Created"
+    }, "Registration");
 
   }
 
@@ -351,67 +291,6 @@ router.post("/login", async (req, res) => {
 
 
     // =================================================
-    // SEND LOGIN EMAIL
-    // =================================================
-
-    await sendEmail({
-
-      to:
-        applicant.email,
-
-      subject:
-        "Successful Login - Tourism Guide Licensing Portal",
-
-      title:
-        "Login Successful",
-
-      greeting:
-        `Dear ${applicant.fullName},`,
-
-      message:
-        "A successful login to your Tourism Guide Licensing Portal account has been detected.",
-
-      details: [
-
-        {
-
-          label:
-            "Applicant Name",
-
-          value:
-            applicant.fullName
-
-        },
-
-        {
-
-          label:
-            "Registered Email",
-
-          value:
-            applicant.email
-
-        },
-
-        {
-
-          label:
-            "Login Status",
-
-          value:
-            "Successful"
-
-        }
-
-      ],
-
-      status:
-        "Login Successful"
-
-    });
-
-
-    // =================================================
     // SEND LOGIN RESPONSE
     // =================================================
 
@@ -442,6 +321,22 @@ router.post("/login", async (req, res) => {
       }
 
     });
+
+    // Send the security notification without delaying the dashboard redirect.
+    sendEmailInBackground({
+      to: applicant.email,
+      subject: "Successful Login - Tourism Guide Licensing Portal",
+      title: "Login Successful",
+      greeting: `Dear ${applicant.fullName},`,
+      message:
+        "A successful login to your Tourism Guide Licensing Portal account has been detected.",
+      details: [
+        { label: "Applicant Name", value: applicant.fullName },
+        { label: "Registered Email", value: applicant.email },
+        { label: "Login Status", value: "Successful" }
+      ],
+      status: "Login Successful"
+    }, "Login");
 
   }
 

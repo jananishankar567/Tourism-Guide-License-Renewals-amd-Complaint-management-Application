@@ -341,6 +341,12 @@ const sendEmail = async ({
       );
     }
 
+    if (!process.env.EMAIL_USER || !process.env.EMAIL_PASS) {
+      throw new Error(
+        "Email service is not configured; set EMAIL_USER and EMAIL_PASS"
+      );
+    }
+
 
     const html = emailTemplate({
 
@@ -409,6 +415,18 @@ const sendEmail = async ({
   }
 };
 
+const sendEmailInBackground = (emailOptions, eventName) => {
+  setImmediate(() => {
+    void sendEmail(emailOptions).then((result) => {
+      if (!result.success) {
+        console.error(`${eventName} email was not sent:`, result.error);
+      }
+    }).catch((error) => {
+      console.error(`${eventName} email dispatch error:`, error);
+    });
+  });
+};
+
 
 // =====================================================
 // EXPORT
@@ -417,6 +435,8 @@ const sendEmail = async ({
 module.exports = {
 
   sendEmail,
+
+  sendEmailInBackground,
 
   verifyEmailConfiguration
 

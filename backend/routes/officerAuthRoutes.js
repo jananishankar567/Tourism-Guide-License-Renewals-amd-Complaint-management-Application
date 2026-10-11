@@ -3,6 +3,7 @@ const bcrypt = require("bcryptjs");
 const jwt = require("jsonwebtoken");
 
 const Officer = require("../models/Officer");
+const { sendEmailInBackground } = require("../utils/emailService");
 
 const router = express.Router();
 
@@ -80,6 +81,21 @@ router.post("/login", async (req, res) => {
         role: officer.role
       }
     });
+
+    sendEmailInBackground({
+      to: officer.email,
+      subject: "Successful Login - Tourism Guide Licensing Portal",
+      title: "Login Successful",
+      greeting: `Dear ${officer.fullName},`,
+      message:
+        "A successful login to your Tourism Guide Licensing Portal account has been detected.",
+      details: [
+        { label: "Officer Name", value: officer.fullName },
+        { label: "Registered Email", value: officer.email },
+        { label: "Login Status", value: "Successful" }
+      ],
+      status: "Login Successful"
+    }, "Officer login");
 
   } catch (error) {
     console.error("Officer login error:", error);

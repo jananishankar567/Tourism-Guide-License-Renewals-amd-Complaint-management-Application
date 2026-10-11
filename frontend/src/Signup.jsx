@@ -1149,7 +1149,7 @@ function Signup() {
 
             {/* Success Message */}
             {message && (
-              <div className="success-message">
+              <div className="success-message" role="status" aria-live="polite">
                 ✓ {message}
               </div>
             )}
