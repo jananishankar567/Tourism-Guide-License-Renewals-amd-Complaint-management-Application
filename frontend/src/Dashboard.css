@@ -784,6 +784,8 @@
   .dashboard-sidebar {
     width: 100%;
     min-height: auto;
+    border-right: none;
+    border-bottom: 1px solid #e5e7eb;
   }
 
   .dashboard-brand {
@@ -793,16 +795,26 @@
   .dashboard-nav {
     flex-direction: row;
     overflow-x: auto;
-    padding: 10px;
+    padding: 10px 12px;
+    gap: 8px;
+    -webkit-overflow-scrolling: touch;
   }
 
   .dashboard-nav-item {
     white-space: nowrap;
     width: auto;
+    flex: 0 0 auto;
   }
 
   .sidebar-bottom {
-    display: none;
+    display: flex;
+    padding: 8px 12px 12px;
+    border-top: 1px solid #eef0f3;
+  }
+
+  .sidebar-bottom .dashboard-nav-item {
+    flex: 1;
+    justify-content: center;
   }
 
   .dashboard-main {
@@ -815,6 +827,8 @@
 
   .dashboard-topbar {
     align-items: flex-start;
+    flex-wrap: wrap;
+    gap: 12px;
   }
 
   .dashboard-topbar h1 {
@@ -822,12 +836,15 @@
   }
 
   .dashboard-user {
-    display: none;
+    display: flex;
+    align-items: center;
+    gap: 8px;
   }
 
   .dashboard-header-actions {
-    gap: 0;
+    gap: 10px;
     padding-top: 3px;
+    margin-left: auto;
   }
 
   .notification-panel {
