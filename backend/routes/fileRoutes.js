@@ -13,6 +13,11 @@ const applicationDocumentFields = [
   "governmentIdDocument",
   "educationalCertificate",
   "trainingCertificate",
+  "iitfcRegistrationProof",
+  "moduleCompletionCertificate",
+  "nchmctExamCertificate",
+  "communicationSeminarCertificate",
+  "verificationVideo",
   "policeCertificate",
   "medicalCertificate",
   "passportPhoto"

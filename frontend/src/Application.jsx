@@ -70,6 +70,11 @@ function Application() {
     governmentId: null,
     educationCertificate: null,
     tourismCertificate: null,
+    iitfcRegistrationProof: null,
+    moduleCompletionCertificate: null,
+    nchmctExamCertificate: null,
+    communicationSeminarCertificate: null,
+    verificationVideo: null,
     policeCertificate: null,
     medicalCertificate: null,
     passportPhoto: null,
@@ -414,6 +419,11 @@ function Application() {
         governmentIdDocument: documentData.governmentId,
         educationalCertificate: documentData.educationCertificate,
         trainingCertificate: documentData.tourismCertificate,
+        iitfcRegistrationProof: documentData.iitfcRegistrationProof,
+        moduleCompletionCertificate: documentData.moduleCompletionCertificate,
+        nchmctExamCertificate: documentData.nchmctExamCertificate,
+        communicationSeminarCertificate: documentData.communicationSeminarCertificate,
+        verificationVideo: documentData.verificationVideo,
         policeCertificate: documentData.policeCertificate,
         medicalCertificate: documentData.medicalCertificate,
         passportPhoto: documentData.passportPhoto,
@@ -1668,6 +1678,141 @@ function Application() {
               </div>
 
 
+              {/* IITFC PORTAL REGISTRATION PROOF */}
+
+              <div className="document-field">
+                <div className="document-heading">
+                  <div>
+                    <strong>IITFC Portal Registration Proof</strong>
+                    <p>Registration confirmation or learner ID evidence</p>
+                  </div>
+                  <span className="required-badge">
+                    {existingApplication?.iitfcRegistrationProof ? "On file" : "Optional"}
+                  </span>
+                </div>
+                <input
+                  type="file"
+                  name="iitfcRegistrationProof"
+                  accept=".pdf,.jpg,.jpeg,.png"
+                  onChange={handleFileChange}
+                />
+                {(documentData.iitfcRegistrationProof || existingApplication?.iitfcRegistrationProof) && (
+                  <span className="selected-file">
+                    ✓ {documentData.iitfcRegistrationProof?.name ||
+                      existingApplication.iitfcRegistrationProof.split(/[\\/]/).pop()}
+                  </span>
+                )}
+              </div>
+
+
+              {/* IITFC MODULE COMPLETION CERTIFICATE */}
+
+              <div className="document-field">
+                <div className="document-heading">
+                  <div>
+                    <strong>Seven-Module Completion Certificate</strong>
+                    <p>Proof of completion for all seven online learning modules</p>
+                  </div>
+                  <span className="required-badge">
+                    {existingApplication?.moduleCompletionCertificate ? "On file" : "Optional"}
+                  </span>
+                </div>
+                <input
+                  type="file"
+                  name="moduleCompletionCertificate"
+                  accept=".pdf,.jpg,.jpeg,.png"
+                  onChange={handleFileChange}
+                />
+                {(documentData.moduleCompletionCertificate || existingApplication?.moduleCompletionCertificate) && (
+                  <span className="selected-file">
+                    ✓ {documentData.moduleCompletionCertificate?.name ||
+                      existingApplication.moduleCompletionCertificate.split(/[\\/]/).pop()}
+                  </span>
+                )}
+              </div>
+
+
+              {/* NCHMCT EXAM RESULT */}
+
+              <div className="document-field">
+                <div className="document-heading">
+                  <div>
+                    <strong>NCHMCT Examination Result</strong>
+                    <p>Exam result or pass certificate</p>
+                  </div>
+                  <span className="required-badge">
+                    {existingApplication?.nchmctExamCertificate ? "On file" : "Optional"}
+                  </span>
+                </div>
+                <input
+                  type="file"
+                  name="nchmctExamCertificate"
+                  accept=".pdf,.jpg,.jpeg,.png"
+                  onChange={handleFileChange}
+                />
+                {(documentData.nchmctExamCertificate || existingApplication?.nchmctExamCertificate) && (
+                  <span className="selected-file">
+                    ✓ {documentData.nchmctExamCertificate?.name ||
+                      existingApplication.nchmctExamCertificate.split(/[\\/]/).pop()}
+                  </span>
+                )}
+              </div>
+
+
+              {/* COMMUNICATION SEMINAR CERTIFICATE */}
+
+              <div className="document-field">
+                <div className="document-heading">
+                  <div>
+                    <strong>Communication Seminar Certificate</strong>
+                    <p>Proof of completion or attendance for the seven-day seminar</p>
+                  </div>
+                  <span className="required-badge">
+                    {existingApplication?.communicationSeminarCertificate ? "On file" : "Optional"}
+                  </span>
+                </div>
+                <input
+                  type="file"
+                  name="communicationSeminarCertificate"
+                  accept=".pdf,.jpg,.jpeg,.png"
+                  onChange={handleFileChange}
+                />
+                {(documentData.communicationSeminarCertificate || existingApplication?.communicationSeminarCertificate) && (
+                  <span className="selected-file">
+                    ✓ {documentData.communicationSeminarCertificate?.name ||
+                      existingApplication.communicationSeminarCertificate.split(/[\\/]/).pop()}
+                  </span>
+                )}
+              </div>
+
+
+              {/* VERIFICATION VIDEO */}
+
+              <div className="document-field">
+                <div className="document-heading">
+                  <div>
+                    <strong>Verification Video</strong>
+                    <p>MP4 video file, up to 5 MB</p>
+                  </div>
+                  <span className="required-badge">
+                    {existingApplication?.verificationVideo ? "On file" : "Optional"}
+                  </span>
+                </div>
+                <input
+                  type="file"
+                  name="verificationVideo"
+                  accept=".mp4,video/mp4"
+                  onChange={handleFileChange}
+                />
+                {(documentData.verificationVideo || existingApplication?.verificationVideo) && (
+                  <span className="selected-file">
+                    ✓ {documentData.verificationVideo?.name ||
+                      existingApplication.verificationVideo.split(/[\\/]/).pop()}
+                  </span>
+                )}
+              </div>
+
+
               {/* POLICE CERTIFICATE */}
 
               <div className="document-field">
@@ -2317,6 +2462,76 @@ function Application() {
                         ? `✓ ${documentData.tourismCertificate.name}`
                         : "Not uploaded"
                     }
+                  </strong>
+
+                </div>
+
+                <div>
+
+                  <span>
+                    IITFC Portal Registration Proof
+                  </span>
+
+                  <strong>
+                    {documentData.iitfcRegistrationProof?.name ||
+                      existingApplication?.iitfcRegistrationProof?.split(/[\\/]/).pop() ||
+                      "Not uploaded"}
+                  </strong>
+
+                </div>
+
+                <div>
+
+                  <span>
+                    Seven-Module Completion Certificate
+                  </span>
+
+                  <strong>
+                    {documentData.moduleCompletionCertificate?.name ||
+                      existingApplication?.moduleCompletionCertificate?.split(/[\\/]/).pop() ||
+                      "Not uploaded"}
+                  </strong>
+
+                </div>
+
+                <div>
+
+                  <span>
+                    NCHMCT Examination Result
+                  </span>
+
+                  <strong>
+                    {documentData.nchmctExamCertificate?.name ||
+                      existingApplication?.nchmctExamCertificate?.split(/[\\/]/).pop() ||
+                      "Not uploaded"}
+                  </strong>
+
+                </div>
+
+                <div>
+
+                  <span>
+                    Communication Seminar Certificate
+                  </span>
+
+                  <strong>
+                    {documentData.communicationSeminarCertificate?.name ||
+                      existingApplication?.communicationSeminarCertificate?.split(/[\\/]/).pop() ||
+                      "Not uploaded"}
+                  </strong>
+
+                </div>
+
+                <div>
+
+                  <span>
+                    Verification Video
+                  </span>
+
+                  <strong>
+                    {documentData.verificationVideo?.name ||
+                      existingApplication?.verificationVideo?.split(/[\\/]/).pop() ||
+                      "Not uploaded"}
                   </strong>
 
                 </div>

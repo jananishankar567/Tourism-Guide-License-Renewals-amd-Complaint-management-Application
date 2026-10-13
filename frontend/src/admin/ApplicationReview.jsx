@@ -1248,6 +1248,36 @@ function ApplicationReview() {
             />
 
             <DocumentCard
+              title="IITFC Portal Registration Proof"
+              value={application.iitfcRegistrationProof}
+              onOpen={openDocument}
+            />
+
+            <DocumentCard
+              title="Seven-Module Completion Certificate"
+              value={application.moduleCompletionCertificate}
+              onOpen={openDocument}
+            />
+
+            <DocumentCard
+              title="NCHMCT Examination Result"
+              value={application.nchmctExamCertificate}
+              onOpen={openDocument}
+            />
+
+            <DocumentCard
+              title="Communication Seminar Certificate"
+              value={application.communicationSeminarCertificate}
+              onOpen={openDocument}
+            />
+
+            <DocumentCard
+              title="Verification Video"
+              value={application.verificationVideo}
+              onOpen={openDocument}
+            />
+
+            <DocumentCard
               title="Police Verification"
               value={
                 application.policeCertificate

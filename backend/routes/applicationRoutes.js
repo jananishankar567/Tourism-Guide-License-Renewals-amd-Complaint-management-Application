@@ -246,28 +246,24 @@ const storage = multer.diskStorage({
 ========================================================= */
 
 const fileFilter = (req, file, cb) => {
+  const isVerificationVideo = file.fieldname === "verificationVideo";
+  const isAllowedType = isVerificationVideo
+    ? file.mimetype === "video/mp4"
+    : ["application/pdf", "image/jpeg", "image/png"].includes(file.mimetype);
 
-  const allowedTypes = [
-    "application/pdf",
-    "image/jpeg",
-    "image/png"
-  ];
-
-  if (allowedTypes.includes(file.mimetype)) {
-
+  if (isAllowedType) {
     cb(null, true);
-
-  } else {
-
-    cb(
-      new Error(
-        "Only PDF, JPG and PNG files are allowed"
-      ),
-      false
-    );
-
+    return;
   }
 
+  cb(
+    new Error(
+      isVerificationVideo
+        ? "Only MP4 files are allowed for the verification video"
+        : "Only PDF, JPG and PNG files are allowed"
+    ),
+    false
+  );
 };
 
 
@@ -308,6 +304,26 @@ router.post(
     },
     {
       name: "trainingCertificate",
+      maxCount: 1
+    },
+    {
+      name: "iitfcRegistrationProof",
+      maxCount: 1
+    },
+    {
+      name: "moduleCompletionCertificate",
+      maxCount: 1
+    },
+    {
+      name: "nchmctExamCertificate",
+      maxCount: 1
+    },
+    {
+      name: "communicationSeminarCertificate",
+      maxCount: 1
+    },
+    {
+      name: "verificationVideo",
       maxCount: 1
     },
     {
@@ -399,12 +415,26 @@ router.post(
         governmentIdDocument: req.files?.governmentIdDocument?.[0],
         educationalCertificate: req.files?.educationalCertificate?.[0],
         trainingCertificate: req.files?.trainingCertificate?.[0],
+        iitfcRegistrationProof: req.files?.iitfcRegistrationProof?.[0],
+        moduleCompletionCertificate: req.files?.moduleCompletionCertificate?.[0],
+        nchmctExamCertificate: req.files?.nchmctExamCertificate?.[0],
+        communicationSeminarCertificate:
+          req.files?.communicationSeminarCertificate?.[0],
+        verificationVideo: req.files?.verificationVideo?.[0],
         policeCertificate: req.files?.policeCertificate?.[0],
         medicalCertificate: req.files?.medicalCertificate?.[0],
         passportPhoto: req.files?.passportPhoto?.[0]
       };
       const documentFields = Object.keys(uploadedDocuments);
-      const missingDocuments = documentFields.filter(
+      const requiredDocumentFields = [
+        "governmentIdDocument",
+        "educationalCertificate",
+        "trainingCertificate",
+        "policeCertificate",
+        "medicalCertificate",
+        "passportPhoto"
+      ];
+      const missingDocuments = requiredDocumentFields.filter(
         (field) =>
           !uploadedDocuments[field] &&
           !existingApplication?.[field]

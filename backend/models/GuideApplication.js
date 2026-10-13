@@ -295,6 +295,26 @@ const guideApplicationSchema = new mongoose.Schema(
       required: true
     },
 
+    iitfcRegistrationProof: {
+      type: String
+    },
+
+    moduleCompletionCertificate: {
+      type: String
+    },
+
+    nchmctExamCertificate: {
+      type: String
+    },
+
+    communicationSeminarCertificate: {
+      type: String
+    },
+
+    verificationVideo: {
+      type: String
+    },
+
     policeCertificate: {
       type: String,
       required: true
